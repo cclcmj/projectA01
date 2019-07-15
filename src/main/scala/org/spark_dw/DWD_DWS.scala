@@ -19,16 +19,24 @@ object DWD_DWS {
 //      val hiveTableName = args(0)
 //      val jdbcProp = JDBCUtils.getJdbcProp._1
 //      val jdbcUrl = JDBCUtils.getJdbcProp._2
-//      //df.write.mode(SaveMode.Overwrite).jdbc(jdbcUrl,mysqlTableTame,jdbcProp)
+//      df.write.mode(SaveMode.Overwrite).jdbc(jdbcUrl,mysqlTableTame,jdbcProp)
 //      df.write.mode(SaveMode.Append).format("HIVE").partitionBy("dt").saveAsTable(hiveTableName)
-    val sql = ConfigManager.getProper("user_basic")
-    val df = hc.sql(sql)
-    val hiveTableName = "qfbap_dm.dm_user_basic"
-    val mysqlTableName = "dm_user_basic"
-    val jdbcProp = JDBCUtils.getJdbcProp._1
-    val jdbcUrl = JDBCUtils.getJdbcProp._2
-    df.write.mode(SaveMode.Overwrite).jdbc(jdbcUrl,mysqlTableName,jdbcProp)
-//    df.write.mode(SaveMode.Append).insertInto(hiveTableName)
+//    val sql = ConfigManager.getProper("user_basic")
+//    val df = hc.sql(sql)
+//    val hiveTableName = "qfbap_dm.dm_user_basic"
+//    val mysqlTableName = "dm_user_basic"
+//    val jdbcProp = JDBCUtils.getJdbcProp._1
+//    val jdbcUrl = JDBCUtils.getJdbcProp._2
+////    df.write.mode(SaveMode.Append).jdbc(jdbcUrl,mysqlTableName,jdbcProp)
+//    df.write.mode(SaveMode.Overwrite).insertInto(hiveTableName)
+val sql = ConfigManager.getProper("user_visit")
+      val df = hc.sql(sql)
+      val hiveTableName = "qfbap_dm.dm_user_visit"
+      val mysqlTableName = "dm_user_visit"
+      val jdbcProp = JDBCUtils.getJdbcProp._1
+      val jdbcUrl = JDBCUtils.getJdbcProp._2
+      df.write.mode(SaveMode.Append).jdbc(jdbcUrl,mysqlTableName,jdbcProp)
+//      df.write.mode(SaveMode.Overwrite).saveAsTable(hiveTableName)
     }
 //  }
 }
