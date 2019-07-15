@@ -1,0 +1,3 @@
+#dwd2dws.job
+type=command
+command=sh /home/dwd2dws.sh

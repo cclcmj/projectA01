@@ -1,0 +1,3 @@
+#com2dwd.job
+type=command
+command=sh /home/ods2dwd.sh

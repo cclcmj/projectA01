@@ -1,0 +1,3 @@
+#sqoop_create.job
+type=command
+command=sh /home/sqoop_create_job.sh
